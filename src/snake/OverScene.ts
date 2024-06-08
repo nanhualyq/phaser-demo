@@ -10,8 +10,11 @@ export default class OverScene extends Phaser.Scene {
     this.score = data.length;
   }
   create() {
-    const text = this.add.text(0, 0, `Game Over!\nYour score: ${this.score}`, {
-      fontSize: "4rem",
+    const size =
+      this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE ? 4 : 2;
+    const content = `Game Over!\nYour score: ${this.score}`;
+    const text = this.add.text(0, 0, content, {
+      fontSize: `${size}rem`,
     });
     text
       .setOrigin(0.5)
